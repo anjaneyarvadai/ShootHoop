@@ -21,16 +21,17 @@ public class BallSpawner : MonoBehaviour {
 		}
 		else if(Input.GetKeyDown(KeyCode.DownArrow)) {
 			Rigidbody rb = CreateBall();
-			rb.velocity = Vector3.down * speed;
+			rb.velocity = Vector3.back * speed;
 		}
-		else if(Input.GetKeyDown(KeyCode.UpArrow)) {
+		else if(Input.GetButtonDown("Fire1")) {
 			Rigidbody rb = CreateBall();
-			rb.velocity = Vector3.up * speed;
+			rb.velocity = Vector3.forward * speed;
 		}
 	}
 
 	Rigidbody CreateBall () {
 		GameObject instance = Instantiate(ballPrefab);
+		instance.transform.position = transform.position;
 		Rigidbody rb = instance.GetComponent<Rigidbody>();
 		return rb;
 	}
