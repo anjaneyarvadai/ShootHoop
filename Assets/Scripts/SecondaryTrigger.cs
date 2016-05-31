@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SecondaryTrigger : MonoBehaviour {
 	Collider expectedCollider;
+	public int increment = 1;
 
 	public void ExpectCollider(Collider collider) {
 		expectedCollider = collider;
@@ -11,7 +12,7 @@ public class SecondaryTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider otherCollider) {
 		if (otherCollider == expectedCollider) {
 			ScoreKeep scorekeep = FindObjectOfType<ScoreKeep>();
-			scorekeep.IncrementScore(1);
+			scorekeep.IncrementScore(increment);
 		}
 	}
 }

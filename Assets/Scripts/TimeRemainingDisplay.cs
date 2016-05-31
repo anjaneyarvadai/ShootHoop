@@ -3,18 +3,18 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class TimeRemainingDisplay : MonoBehaviour {
-	Text text;
+	TextMesh text;
 	LevelManager levelManager;
 
 	// Use this for initialization
 	void Start () {
 	levelManager = FindObjectOfType<LevelManager>();
-		text = GetComponent<Text>();
+		text = GetComponent<TextMesh>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		text.text = "Time Left: "+ levelManager.timeTillNextLevel;
+		text.text = "Time: "+ levelManager.timeTillNextLevel;
 	}
 }
